@@ -1,0 +1,68 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container for Events */
+.event-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Event Box */
+.event-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Event Title */
+.event-title {
+    font-size: 1.5em;
+    color: #007BFF; /* Change to your preferred color */
+    margin-bottom: 10px;
+}
+
+/* Event Date */
+.event-date {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Event Description */
+.event-description {
+    font-size: 1em;
+    color: #444;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 600px) {
+    .event-box {
+        padding: 15px;
+    }
+    .event-title {
+        font-size: 1.2em;
+    }
+    .event-description {
+        font-size: 0.9em;
+    }
+}
