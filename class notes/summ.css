@@ -55,7 +55,7 @@ body {
 }
 
 /* Media Query for Responsiveness */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .event-box {
         padding: 15px;
     }
