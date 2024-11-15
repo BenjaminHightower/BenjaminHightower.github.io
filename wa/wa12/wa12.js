@@ -2,7 +2,7 @@ let myData = {};
 
 function fetchData(){
     const comicNumber = Math.floor(Math.random()*3000)+1;
-fetch('https://corsproxy.io/?https://xkcd.com/${comicNumber}/info.0.json')
+fetch(`https://corsproxy.io/?https://xkcd.com/${comicNumber}/info.0.json`)
 .then(res => {
     if (res.ok) {
       return res.json();
@@ -24,8 +24,15 @@ fetch('https://corsproxy.io/?https://xkcd.com/${comicNumber}/info.0.json')
     document.getElementById("comicDate").innerHTML = (m + '/' + d + '/' + y);
 
   })
-  .catch(error => {
-    console.log(error);
-  });
+  .catch(error => {console.log(error)})
 }
-        
+fetchData();
+
+document.getElementById("generate").addEventListener("click", e=> {fetchData();})
+
+console.log(myData);
+
+let name = "Ben";
+
+let myString = "hello " + name + "!";
+myString = `hello ${name} !`;
