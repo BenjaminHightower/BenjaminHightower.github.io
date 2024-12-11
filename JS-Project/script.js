@@ -29,36 +29,36 @@ let score = 0;
 let rate;
 
 // difficulty spike (levels)
-rate = setInterval(spawn, 2560);
+rate = setInterval(spawn, 1920);
 function update_score() {
     score++;
     if (score === 1000 && rate) {
         clearInterval(rate);
-        rate = setInterval(spawn, 1280);
+        rate = setInterval(spawn, 960);
     }
     if (score === 2000 && rate) {
         clearInterval(rate);
-        rate = setInterval(spawn, 640);
+        rate = setInterval(spawn, 480);
     }
     if (score === 3000 && rate) {
         clearInterval(rate);
-        rate = setInterval(spawn, 320);
+        rate = setInterval(spawn, 240);
     }
     if (score === 4000 && rate) {
         clearInterval(rate);
-        rate = setInterval(spawn, 160);
+        rate = setInterval(spawn, 120);
     }
     if (score === 5000 && rate) {
         clearInterval(rate);
-        rate = setInterval(spawn, 80);
+        rate = setInterval(spawn, 60);
     }
     if (score === 6000 && rate) {
         clearInterval(rate);
-        rate = setInterval(spawn, 40);
+        rate = setInterval(spawn, 30);
     }
     if (score === 7000 && rate) {
         clearInterval(rate);
-        rate = setInterval(spawn, 20);
+        rate = setInterval(spawn, 15);
     }
     if (score >= 8000) {
         gamestate = 'won';
@@ -79,6 +79,7 @@ function update() {
         ctx.font = '16px Arial';
         ctx.fillText('Arrow Keys = Engage Thrusters | Spacebar = Enable Stasis', canvas.width / 2 - 220, canvas.height / 2 + 90);
         ctx.fillText('After every 1000 points gained, you advance further into the asteroid cluster...', canvas.width / 2 - 285, canvas.height / 2 + 120);
+        ctx.fillText('The commander says to reach 8000 score and we will be home free.', canvas.width / 2 - 250, canvas.height / 2 + 150);
     } else if (gamestate === 'game') {
 
         // player movement
@@ -188,7 +189,7 @@ document.addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
             if (gamestate === 'start') {
                 gamestate = 'game';
-                setInterval(spawn, 2560);
+                setInterval(spawn, 1920);
             } else {
                 document.location.reload();
             }
