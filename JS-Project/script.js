@@ -60,9 +60,8 @@ function update_score() {
         clearInterval(rate);
         rate = setInterval(spawn, 20);
     }
-    if (score === 8000 && rate) {
-        clearInterval(rate);
-        rate = setInterval(spawn, 10);
+    if (score >= 8000) {
+        gamestate = 'won';
     }
 }
 
@@ -137,14 +136,27 @@ function update() {
         ctx.font = '16px Arial';
         ctx.fillStyle = 'white';
         ctx.fillText('Score: ' + score, 10, 20);
-    } else if (gamestate === 'end') {
 
-        // draw ending
+    // draw end
+    } else if (gamestate === 'end') {
         ctx.font = '30px Arial';
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = 'red';
         ctx.fillText('Game Over', canvas.width / 2 - 90, canvas.height / 2 - 65);
+        ctx.fillStyle = 'white';
         ctx.font = '16px Arial';
         ctx.fillText('You and your crew were lost to the asteroids...', canvas.width / 2 - 170, canvas.height / 2 - 35);
+        ctx.font = '20px Arial';
+        ctx.fillText('Score: ' + score, canvas.width / 2 - 60, canvas.height / 2);
+        ctx.fillText('Press Enter to Continue', canvas.width / 2 - 110, canvas.height / 2 + 50);
+
+    // draw win
+    } else if (gamestate === 'won') {
+        ctx.font = '30px Arial';
+        ctx.fillStyle = 'green';
+        ctx.fillText('YOU DID IT!', canvas.width / 2 - 90, canvas.height / 2 - 65);
+        ctx.fillStyle = 'white';
+        ctx.font = '16px Arial';
+        ctx.fillText('You and your crew escaped the asteroid cluster!', canvas.width / 2 - 170, canvas.height / 2 - 35);
         ctx.font = '20px Arial';
         ctx.fillText('Score: ' + score, canvas.width / 2 - 60, canvas.height / 2);
         ctx.fillText('Press Enter to Continue', canvas.width / 2 - 110, canvas.height / 2 + 50);
@@ -172,7 +184,7 @@ document.addEventListener('keydown', function (event) {
                 player.direction = 'stop';
                 break;
         }
-    } else if (gamestate === 'start' || gamestate === 'end') {
+    } else if (gamestate === 'start' || gamestate === 'end' || gamestate == 'won') {
         if (event.key === 'Enter') {
             if (gamestate === 'start') {
                 gamestate = 'game';
